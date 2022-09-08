@@ -1,4 +1,5 @@
 site_name: Doc template
+
 theme:
   name: material
   font:
@@ -12,9 +13,11 @@ theme:
     - navigation.expand
     - navigation.top
   custom_dir: overrides
+
 extra:
   version:
     provider: mike
+
 nav:
   - Home: 'index.md'
   - Getting started:
@@ -25,6 +28,7 @@ markdown_extensions:
     - attr_list
     - tables
     - pymdownx.snippets
+
 plugins:
     - search
     - mkdocstrings:
