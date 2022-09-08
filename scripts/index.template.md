@@ -2,4 +2,4 @@
 
 [![Cosmotech](https://img.shields.io/badge/Cosmotech-ffb039?style=for-the-badge&logoColor=black)](https://cosmotech.com/)
 
-This is a template of python repository with automated documentation generation
+--README--
