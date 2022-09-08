@@ -205,7 +205,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="references/src.class_file/" class="md-tabs__link">
+      <a href="references/src.function_file/" class="md-tabs__link">
         References
       </a>
     </li>
@@ -305,6 +305,20 @@
         <li class="md-nav__item">
   <a href="#first-set-up" class="md-nav__link">
     First set-up
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-the-documentation" class="md-nav__link">
+    Update the documentation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#change-default-version" class="md-nav__link">
+    Change default version
   </a>
   
 </li>
@@ -451,8 +465,8 @@
   
   
     <li class="md-nav__item">
-      <a href="references/src.class_file/" class="md-nav__link">
-        class_file
+      <a href="references/src.function_file/" class="md-nav__link">
+        function_file
       </a>
     </li>
   
@@ -465,8 +479,8 @@
   
   
     <li class="md-nav__item">
-      <a href="references/src.function_file/" class="md-nav__link">
-        function_file
+      <a href="references/src.class_file/" class="md-nav__link">
+        class_file
       </a>
     </li>
   
@@ -533,6 +547,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#update-the-documentation" class="md-nav__link">
+    Update the documentation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#change-default-version" class="md-nav__link">
+    Change default version
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -552,11 +580,13 @@
 <p>This repository is a template allowing easy creation of python repository with a full documnentation automatisation.</p>
 <h2 id="usage">Usage</h2>
 <p>You can rename the <code>src</code> folder to whichever name you want for your source code (library name if it is a library)</p>
-<p>Once done you need to replace <code>src</code> to your new name in the following files :
-- <code>scripts/generate_index.py</code>
-- <code>scripts/generate_references.py</code>
-- <code>.github/workflows/generate_gh_pages.yml</code>
-- <code>.github/workflows/tag_latest_release_gh_pages.yml</code></p>
+<p>Once done you need to replace <code>src</code> to your new name in the following files :</p>
+<ul>
+<li><code>scripts/generate_index.py</code></li>
+<li><code>scripts/generate_references.py</code></li>
+<li><code>.github/workflows/generate_gh_pages.yml</code></li>
+<li><code>.github/workflows/tag_latest_release_gh_pages.yml</code></li>
+</ul>
 <h2 id="first-set-up">First set-up</h2>
 <p>Once you have set up everything you can do the following commands :</p>
 <pre><code class="language-bash">python -m venv venv
@@ -565,10 +595,30 @@ pip install -e .
 mike deploy [version] latest
 mike set-default latest
 </code></pre>
-<p>All those commands will build a first version <code>[version]</code> of your doc, tag it as the latest and use it by default.
-You can then do the following command to check it locally :</p>
+<p>All those commands will build a first version <code>[version]</code> of your doc, tag it as the latest and use it by default. You
+can then do the following command to check the built version locally :</p>
 <pre><code class="language-bash">mike serve
 </code></pre>
+<h2 id="update-the-documentation">Update the documentation</h2>
+<p>To check how your current doc would look like without adding it to the distant documentation you can use the following
+command:</p>
+<pre><code class="language-bash">mkdocs serve
+</code></pre>
+<p>Once you are ok with the changes you can either push your changes to your <code>main</code> branch which will trigger an automatic
+update of your doc.</p>
+<p>Or you can use the following command</p>
+<pre><code class="language-bash">mike deploy [--push] [version]
+</code></pre>
+<ul>
+<li><code>--push</code> will allow to push the new version of your doc directly to the distant one.</li>
+<li><code>version</code> is the version number of your doc, you can use an existing number to override an existing doc</li>
+</ul>
+<h2 id="change-default-version">Change default version</h2>
+<p>If you want to change which version is displayed by default, you can use the following command :</p>
+<pre><code class="language-bash">mike alias [version] latest
+</code></pre>
+<p>With the previous settings you made that the default version used is the one with the alias <code>latest</code> this command allows
+you to change which branch has that alias</p>
 
 
 
