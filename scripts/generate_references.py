@@ -42,14 +42,13 @@ with open('scripts/generic_ref.template.md') as f:
 mk_nav = mkdocs_gen_files.Nav()
 for nav, file_set in parents.items():
     nav_root = ['References']
-    nav_root.extend(n for n in nav.split('.') if n)
-    file_name = '.'.join([nav, 'md'])
-
+    nav_root.extend(n for n in nav.split('.')[1:] if n)
+    file_name = '/'.join(nav.split('.')[1:]) + '.md'
     mk_nav[nav_root] = file_name
     with mkdocs_gen_files.open(os.path.join('references', file_name), 'w') as f:
         f.write(f'# {nav}')
         f.write('\n')
-        for filz in file_set:
+        for filz in sorted(file_set):
             if filz != nav:
                 f.write(generic_template_ref.replace('%%IDENTIFIER%%', '.'.join([nav, filz])))
             else:
