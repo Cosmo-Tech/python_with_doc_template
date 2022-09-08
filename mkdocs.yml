@@ -2,6 +2,7 @@ site_name: Doc template
 
 theme:
   name: material
+  logo: assets/logo.png
   font:
     code: Fira Mono
   palette:
