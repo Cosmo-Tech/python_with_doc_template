@@ -1,0 +1,35 @@
+[metadata]
+licence_files=["LICENSE.md"]
+
+[project]
+name = "CosmoTech_Documentation_Template"
+authors = [{ name = "Cosmo Tech", email = "platform@cosmotech.com" }]
+description = "Template repository for python with automated documentation"
+dynamic = ["version", "dependencies", "optional-dependencies"]
+readme = {file = "README.md", content-type = "text/markdown"}
+
+[urls]
+Homepage = "https://www.cosmotech.com"
+Source = "https://github.com/Cosmo-Tech/python_with_doc_template"
+Documentation = "https://cosmo-tech.github.io/python_with_doc_template/"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+
+[tool.setuptools]
+include-package-data = true
+package-data."*" = [
+  "requirements.txt",
+  "requirements.doc.txt"
+]
+zip-safe = false
+
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.setuptools.dynamic]
+version.attr = "src.VERSION"
+dependencies.file = "requirements.txt"
+optional-dependencies.doc.file = "requirements.doc.txt"

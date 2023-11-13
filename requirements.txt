@@ -1,9 +1,1 @@
-# Documentation generation requirements
-mkdocs
-mkdocs-gen-files
-mkdocs-material
-mkdocstrings[python]
-mkdocs-literate-nav
-mike
-pymdown-extensions
-requirements-parser
+# Basic requirements

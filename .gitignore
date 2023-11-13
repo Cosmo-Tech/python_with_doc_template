@@ -3,3 +3,5 @@
 *.egg-info/
 *.pyc
 site/
+.cache/
+build/

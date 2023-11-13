@@ -1,6 +1,7 @@
 site_name: Doc template
 repo_url: https://github.com/Cosmo-Tech/python_with_doc_template
 repo_name: Cosmo-Tech/python_with_doc_template
+site_description: Simple documentation template for Cosmo Tech python projects
 
 theme:
   name: material
@@ -22,6 +23,7 @@ theme:
         name: Switch to dark mode
   features:
     - content.code.copy
+    - content.code.annotate
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.expand
@@ -52,10 +54,16 @@ markdown_extensions:
     - footnotes
     - md_in_html
     - tables
+    - toc:
+        title: "In this page"
+        permalink: true
     - def_list
     - pymdownx.details
-    - pymdownx.snippets
+    - pymdownx.snippets:
+        url_download: true
     - pymdownx.superfences
+    - pymdownx.highlight
+    - pymdownx.inlinehilite
     - pymdownx.critic
     - pymdownx.caret
     - pymdownx.keys
@@ -64,8 +72,8 @@ markdown_extensions:
     - pymdownx.tabbed:
         alternate_style: true
     - pymdownx.emoji:
-        emoji_index: !!python/name:materialx.emoji.twemoji
-        emoji_generator: !!python/name:materialx.emoji.to_svg
+        emoji_index: !!python/name:material.extensions.emoji.twemoji
+        emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 plugins:
     - search
@@ -83,3 +91,4 @@ plugins:
           - scripts/generate_index.py
     - literate-nav
     - mike
+    - social
